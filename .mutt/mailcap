@@ -1,0 +1,3 @@
+application/pdf; evince %s > /dev/null
+text/html;       w3m %s > /dev/null
+

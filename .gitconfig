@@ -1,0 +1,17 @@
+[core]
+  editor = vim
+[user]
+	name = Peter Hajdu
+#	email = EDIT
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+	decorate = auto
+	grep = auto
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+

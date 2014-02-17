@@ -1,0 +1,6 @@
+set from      = "peter.ferenc.hajdu@gmail.com"
+set sendmail  = "/usr/bin/msmtp -a gmail"
+set mbox      = "+/archive"
+unset record
+set postponed = "+/drafts"
+
