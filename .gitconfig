@@ -15,3 +15,5 @@
 [difftool]
   prompt = false
 
+[alias]
+        tree = log --graph --decorate --oneline
