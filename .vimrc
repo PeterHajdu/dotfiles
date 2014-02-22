@@ -7,6 +7,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
+
+let g:ycm_confirm_extra_conf = 0
 
 filetype plugin indent on
 set backup
