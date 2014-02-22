@@ -31,3 +31,5 @@ zstyle ':completion:*' menu select
 #ignore duplicate history entries
 setopt HIST_IGNORE_DUPS
 
+path+=(~/todo ~/bin)
+
