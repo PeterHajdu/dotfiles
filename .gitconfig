@@ -1,19 +1,18 @@
 [core]
   editor = vim
 [user]
-	name = Peter Hajdu
-#	email = EDIT
+  name = Peter Hajdu
+  email = EDIT
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	log = auto
-	decorate = auto
-	grep = auto
+  diff = auto
+  status = auto
+  branch = auto
+  log = auto
+  decorate = auto
+  grep = auto
 [diff]
   tool = vimdiff
 [difftool]
   prompt = false
-
 [alias]
-        tree = log --graph --decorate --oneline
+  tree = log --graph --decorate --oneline
