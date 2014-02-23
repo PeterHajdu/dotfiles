@@ -11,8 +11,8 @@
 
 ## maildir settings
   set mbox_type           = Maildir                               # mailbox type
-  set folder              = $HOME/mail/local                      # mailbox location
-  set spoolfile           = "$HOME/mail/local/INBOX"      	  # GMail is default inbox
+  set folder              = $HOME/mail                            # mailbox location
+  set spoolfile           = $HOME/mail
 
 ## main options
 unset confirmappend                                               # don't ask, just do
@@ -58,9 +58,6 @@ alternative_order text/plain text/enriched text/html              # but save it 
 ignore *                                                          # ignore all headers
 unignore from: to: cc: date: subject:                             # show only these
 hdr_order from: to: cc: date: subject:                            # and in this order
-
-## lists and boxes
-mailboxes +local/INBOX +local/[Gmail].All Mail +local/[Gmail].Sent Mail +/local/[Gmail].Drafts
 
 source ~/.mutt/colours.muttrc
 
@@ -109,8 +106,4 @@ macro index,pager         A   "<pipe-message>abook --add-email<return>" "add sen
 # send-hook "~u" "push '<edit-cc>,@gmail.com<enter>'"
 
 source ~/.mutt/gpg.rc
-
-macro index <F8> \
-          "<enter-command>unset wait_key<enter><shell-escape>~/bin/mutt-notmuch --prompt search<enter><change-folder-readonly>~/.cache/notmuch/mutt/results/<enter>" \
-          "search mail (using notmuch)"
 
