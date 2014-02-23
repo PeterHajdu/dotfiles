@@ -11,8 +11,9 @@
 
 ## maildir settings
   set mbox_type           = Maildir                               # mailbox type
-  set folder              = $HOME/mail                            # mailbox location
-  set spoolfile           = $HOME/mail
+  set folder              = $HOME/mail
+  set spoolfile           = $HOME/mail/inbox
+  set record              = $HOME/mail/sent
 
 ## main options
 unset confirmappend                                               # don't ask, just do
