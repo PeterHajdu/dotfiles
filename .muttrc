@@ -1,11 +1,5 @@
-###
-# ~/.mutt/muttrc
-####
-
 ## directories and commands
-  set alias_file          = ~/.mutt/alias                         # alias file
   set certificate_file    = ~/.mutt/certificates                  # where to store certs
-  set header_cache        = ~/.mutt/cache/headers                 # where to store headers
   set message_cachedir    = ~/.mutt/cache/bodies                  # where to store bodies
   set mailcap_path        = ~/.mutt/mailcap                       # entrys for filetypes
   set signature           = ~/.mutt/sig                           # my signature file
@@ -31,7 +25,6 @@ unset mark_old                                                    # read/new is 
   set pager_context       = 5                                     # number of context lines to show
   set pager_stop                                                  # don't go to next message automatically
   set pipe_decode                                                 # strip headers and eval mimes when piping
-  set reverse_alias                                               # show names from alias file in index
   set sort                = threads                               # like gmail
   set sort_aux            = reverse-last-date-received            # like gmail
 unset sort_re                                                     # always thread
@@ -45,7 +38,6 @@ auto_view text/html                                               # view html au
 alternative_order text/plain text/enriched text/html              # but save it for last
 
 ## formats and regexps
-  set alias_format        = "%4n %t %-20a %r"
   set date_format         = "%d/%m/%y at %I:%M%P"
   set index_format        = "%3C %Z %[!%d/%m] %-17.17F %s"
   set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
@@ -73,7 +65,6 @@ mailboxes +local/INBOX +local/[Gmail].All Mail +local/[Gmail].Sent Mail +/local/
 source ~/.mutt/colours.muttrc
 
 ## these are always sourced
-source $alias_file                                                # required for functionality
 source ~/.mutt/gmail.muttrc                                       # source gmail as default
 
 ## override with account specific folder-hooks

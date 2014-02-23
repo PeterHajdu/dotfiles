@@ -48,10 +48,6 @@ uncolor index "~D"
   color body       brightblue    default "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
   color body       brightblue    default "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
 
-# smileys, the right way and the backward-ass euro way
-  color body       brightmagenta default "(^| )+(|[<>|])[8;:](|[^ ])[)(/|DOPS]( |$)+"
-  color body       brightmagenta default "(^| )+[)(/|DOPS](|[^ ])[8;:](|[<>|])( |$)+"
-
 # *bold*, _underline_, and /italic/
   color body       brightcyan    default "(^| )\\*[^ ]+\\*( |$)"
   color body       brightcyan    default "(^| )_[^ ]+_( |$)"
