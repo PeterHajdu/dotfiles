@@ -37,6 +37,9 @@ set incsearch
 set number
 set lbr
 
+set ignorecase
+set smartcase
+
 map <C-e> <ESC>:tabnew 
 map <C-l> <ESC>:tabn<CR>
 map <C-h> <ESC>:tabp<CR>
