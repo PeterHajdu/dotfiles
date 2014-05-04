@@ -1,0 +1,11 @@
+[retriever]
+type = SimplePOP3SSLRetriever
+server = pop.gmail.com
+username = edit@gmail.com
+password = edit
+port = 995
+
+[destination]
+type = Maildir
+path = ~/mail/inbox/
+
