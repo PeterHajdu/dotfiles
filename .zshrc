@@ -31,5 +31,7 @@ zstyle ':completion:*' menu select
 #ignore duplicate history entries
 setopt HIST_IGNORE_DUPS
 
+bindkey '^R' history-incremental-search-backward
+
 path+=(~/todo ~/bin)
 
