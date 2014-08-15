@@ -78,3 +78,6 @@ export SSH_KEY_PATH="$HOME/.ssh/dsa_id"
 # Example aliases
 # alias zshconfig="mate $HOME/.zshrc"
 # alias ohmyzsh="mate $HOME/.oh-my-zsh"
+
+bindkey '^R' history-incremental-search-backward
+
