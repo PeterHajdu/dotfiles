@@ -1,0 +1,84 @@
+#!/usr/local/bin/bash
+
+apikey="edit"
+
+command=$0
+application=$1
+event=$2
+description=$3
+priority=$4
+
+baseurl="https://www.notifymyandroid.com/publicapi"
+posturl="$baseurl/notify"
+
+notifyout=/tmp/androidNotify$(date '+%d%m%Y%H%M%S%N')
+usage="Usage: $command Application Event Description [priority]"
+
+function error_exit
+{
+  printf '%s\n\t%s\n\t\t%s\n' "[ Error ] Notification not sent:" "$errormessage" "$usage"
+  printf '\n%s\n' "$application , $event , $description, priority=$priority" >> $notifyout ##adding info used to tmp file. 
+  exit 1
+}
+
+function clean_exit
+{
+  printf '%s\n' "[ info ] Notification sent"
+  rm "$notifyout" ##removing output file when notification was sent okay
+  exit 0
+}
+
+function input_check
+{
+  if [[ "${#apikey}" -ne "48" ]]; then
+    errormessage="apikey must be 48 characters long, you gave me ${#apikey}"
+    error_exit
+    #application must be between 1 and 256 characters long
+  elif [[ "${#application}" -gt "256" ||  "${#application}" -lt "1" ]]; then
+    errormessage="[ error ] the application parameter is invalid or missing"
+    error_exit
+    #event must be between 1 and 1000 characters long
+  elif [[ "${#event}" -gt "1000"  ||  "${#event}" -lt "1" ]]; then
+    errormessage="[ error ] the event parameter is invalid or missing"
+    error_exit
+    #description must be between 1 and 1000 characters long
+  elif [[ "${#description}" -gt "1000"  ||  "${#description}" -lt "1" ]]; then
+    errormessage="[ error ] the description parameter is invalid or missing"
+    error_exit
+    ##priority is expected to be between -2 and 2, if other numbers are given than default(0) is used.
+  fi
+
+  if [ -z $priority ]; then
+    printf '%s\n' "priority is not set , must be between -2 and 2, using 0 instead"
+    priority=0
+  elif [[ "$priority" -gt "2" || $priority -lt "-2" ]]; then
+    printf '%s\n' "priority $priority is invalid, must be between -2 and 2, using 0 instead"
+    priority=0
+  fi
+
+  if [[ -n "$5" ]]; then
+    errormessage="[ error ] too many parameters have been provided:"
+    error_exit
+  fi
+
+}
+
+function send_notification
+{
+  curl --silent --data-ascii "apikey=$apikey" --data-ascii "application=$application" --data-ascii "event=$event" --data-asci "description=$description" --data-asci "priority=$priority" $posturl -o $notifyout && complete=1
+}
+
+function check_notification
+{
+  if grep -q 200 $notifyout; then
+    clean_exit
+  else
+    errormessage="$(cut -f4 -d'>' $notifyout | cut -f1 -d'<')"
+    error_exit
+  fi
+}
+
+input_check
+send_notification
+check_notification
+
