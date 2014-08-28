@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+HOST=$1
+
+echo "Waiting for $HOST to show up."
+while ! ping -c1 $HOST; do echo 'still waiting'; sleep 1; done; nma host_reachable host_reachable "$HOST is reachable"
+
