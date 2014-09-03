@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-MESSAGE=$1
-nma notify notify $MESSAGE
-

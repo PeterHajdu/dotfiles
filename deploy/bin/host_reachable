@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
 HOST=$1
+exit 1
+API_KEY="EDIT"
 
 echo "Waiting for $HOST to show up."
-while ! ping -c1 $HOST; do echo 'still waiting'; sleep 1; done; nma host_reachable host_reachable "$HOST is reachable"
+while ! ping -c1 $HOST
+do
+  echo 'still waiting'
+  sleep 1
+done
+
+notify-my-android -k $API_KEY -d "$HOST is reachable"
 
