@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
+call vundle#end()
 
 let g:ycm_confirm_extra_conf = 0
 
