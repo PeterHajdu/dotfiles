@@ -1,2 +1,4 @@
 XDG_DESKTOP_DIR="/home/tacsko/"
 XDG_DOWNLOAD_DIR="/home/tacsko/downloads"
+XDG_CACHE_HOME="/home/tacsko/.cache"
+
