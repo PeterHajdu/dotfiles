@@ -10,7 +10,9 @@ Bundle 'valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 call vundle#end()
 
-let g:ycm_confirm_extra_conf = 0
+"let g:ycm_server_keep_logfiles = 1
+"let g:ycm_server_log_level = 'debug'
+"let g:ycm_confirm_extra_conf = 0
 
 filetype plugin indent on
 
@@ -61,4 +63,10 @@ noremap   <Right>  <NOP>
 au BufNewFile,BufRead *.cpp set syntax=cpp11
 
 set wildmode=longest,list
+
+set backup
+set backupdir=~/.vim/backup
+
+set swapfile
+set dir=~/.vim/swap
 
