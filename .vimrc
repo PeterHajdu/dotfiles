@@ -70,3 +70,5 @@ set backupdir=~/.vim/backup
 set swapfile
 set dir=~/.vim/swap
 
+set noundofile
+
