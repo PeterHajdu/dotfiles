@@ -1,0 +1,3 @@
+#!/bin/sh
+cat ~/todo/todo.txt | sort
+
