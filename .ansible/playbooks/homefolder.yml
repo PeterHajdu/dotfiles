@@ -1,0 +1,36 @@
+---
+- hosts: hajdu.im
+  vars:
+    shell: /usr/local/bin/zsh
+
+  tasks:
+    - name: download configuration files
+      git: repo=https://github.com/PeterHajdu/dotfiles.git dest=~/src/other/dotfiles
+
+    - name: deploy dotfiles
+      shell: cp -rf ~/src/other/dotfiles/.* ~
+
+    - name: create vim backup folder
+      file: dest=~/.vim/backup state=directory
+
+    - name: create vim swap folder
+      file: dest=~/.vim/swap state=directory
+
+    - name: clone vundle
+      git: repo=https://github.com/gmarik/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
+
+    - name: install vim bundles
+      shell: vim +PluginInstall +qall
+
+    - name: install ohmyzsh
+      git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+    - stat: path={{shell}}
+      register: p
+    - fail: msg="zsh is not installed"
+      when: not p.stat.exists
+
+    - name: set shell to {{shell}}
+      sudo: yes
+      user: name=tacsko shell={{shell}}
+
