@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+  sudo: yes
+  tasks:
+  - name: install prebuilt packages
+    openbsd_pkg: name={{ item }} state=latest
+    with_items:
+      - git
+      - vim--no_x11
+      - cmake
+      - ruby
+      - mc
+      - getmail
+      - mutt
+      - firefox
+      - llvm
+
+  - name: install ruby gems
+    gem: name={{ item }} state=latest user_install=no
+    with_items:
+      - cucumber
+      - rspec
+      - watchr
+
+  - name: copy firewall config
+    copy: src=configfiles/pf.conf dest=/etc/pf.conf
+
+  - name: check firewall config syntax
+    shell: pfctl -nf /etc/pf.conf
+
+  - name: restart firewall
+    shell: pfctl -f /etc/pf.conf
+
+  - name: disable keyboard bell
+    copy: src=configfiles/wsconsctl.conf dest=/etc/wsconsctl.conf
+
+  - name: increase default volume
+    copy: src=configfiles/mixerctl.conf dest=/etc/mixerctl.conf
+
