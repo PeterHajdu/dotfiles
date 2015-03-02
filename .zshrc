@@ -81,4 +81,3 @@ export SSH_KEY_PATH="$HOME/.ssh/dsa_id"
 
 bindkey '^R' history-incremental-search-backward
 
-export TERM=screen
