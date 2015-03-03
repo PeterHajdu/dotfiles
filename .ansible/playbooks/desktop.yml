@@ -14,6 +14,7 @@
       - mutt
       - firefox
       - llvm
+      - mupdf
 
   - name: install ruby gems
     gem: name={{ item }} state=latest user_install=no
