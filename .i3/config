@@ -22,6 +22,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec xterm -bg black -fg white -fa "Liberation Mono:size=11:antialias=false"
 
+# check utf8 mail
+bindsym $mod+m exec uxterm -bg black -fg white -fa "Liberation Mono:size=11:antialias=false" -e check_mail
+
 #define workspaces
 workspace 1 output LVDS1
 workspace 2 output LVDS1
