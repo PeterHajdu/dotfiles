@@ -1,51 +1,87 @@
 set nocompatible
 
+" Vundle stuff
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
+Plugin 'gmarik/vundle'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'bling/vim-airline'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 call vundle#end()
 
 filetype plugin indent on
 
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set laststatus=2
+" General settings
 
-set hidden
-set novb
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set smarttab
-set expandtab
-set softtabstop=2
-set hlsearch
-set textwidth=0
-set lcs=tab:>-,trail:-
-set list
-syntax on
 set backspace=indent,eol,start
-set history=50
 set ruler
+set number
 set showcmd
 set incsearch
-set number
-set lbr
+set hlsearch
 
-set ignorecase
-set smartcase
-
-map <C-e> <ESC>:tabnew 
-map <C-l> <ESC>:tabn<CR>
-map <C-h> <ESC>:tabp<CR>
+" look and feel
 
 set background=dark
 set colorcolumn=100
 colorscheme advantage
 
+" airline stuff
+let g:airline_detect_paste=1
+" Show airline for tabs too
+let g:airline#extensions#tabline#enabled = 1
+
+" nerdtree
+nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+let NERDTreeQuitOnOpen=0
+
+" always show statusline
+set laststatus=2
+
+" todo: get decent ctags
+" tag support
+" Where to look for tags files
+set tags=./tags;,~/.vimtags
+" Sensible defaults
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_suppress_ctags_warning = 1
+
+" tagbar stuff
+nmap <silent> <leader>b :TagbarToggle<CR>
+let g:tagbar_ctags_bin = '/usr/local/bin/ectags'
+
+" git integration
+" airblade/vim-gitgutter settings -----
+" Required after having changed the colorscheme
+hi clear SignColumn
+" In vim-airline, only display "hunks" if the diff is non-zero
+let g:airline#extensions#hunks#non_zero_only = 1
+
+syntax on
+
+" don't litter all around
+set backup
+set backupdir=~/.vim/backup
+
+set swapfile
+set dir=~/.vim/swap
+
+set noundofile
+
+" forget about arrows
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
@@ -55,15 +91,26 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-au BufNewFile,BufRead *.cpp set syntax=cpp11
+" easy tab navigation
+map <C-e> <ESC>:tabnew
+map <C-l> <ESC>:tabn<CR>
+map <C-h> <ESC>:tabp<CR>
 
-set wildmode=longest,list
+" split pane navigation
+nmap <silent> <a-k> :wincmd k<CR>
+nmap <silent> <a-j> :wincmd j<CR>
+nmap <silent> <a-h> :wincmd h<CR>
+nmap <silent> <a-l> :wincmd l<CR>
 
-set backup
-set backupdir=~/.vim/backup
+" indentation insanity
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
+set softtabstop=2
 
-set swapfile
-set dir=~/.vim/swap
-
-set noundofile
+" show insane characters
+set lcs=tab:>-,trail:-
+set list
 
