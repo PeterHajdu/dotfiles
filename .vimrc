@@ -29,6 +29,14 @@ set number
 set showcmd
 set incsearch
 set hlsearch
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
+set softtabstop=2
+set ignorecase
+set smartcase
 
 " look and feel
 
@@ -101,14 +109,6 @@ nmap <silent> <a-k> :wincmd k<CR>
 nmap <silent> <a-j> :wincmd j<CR>
 nmap <silent> <a-h> :wincmd h<CR>
 nmap <silent> <a-l> :wincmd l<CR>
-
-" indentation insanity
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set smarttab
-set expandtab
-set softtabstop=2
 
 " show insane characters
 set lcs=tab:>-,trail:-
