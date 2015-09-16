@@ -80,9 +80,7 @@ let g:airline#extensions#hunks#non_zero_only = 1
 
 syntax on
 
-" don't litter all around
-set backup
-set backupdir=~/.vim/backup
+set nobackup
 
 set swapfile
 set dir=~/.vim/swap
