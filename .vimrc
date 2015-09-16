@@ -81,10 +81,7 @@ let g:airline#extensions#hunks#non_zero_only = 1
 syntax on
 
 set nobackup
-
-set swapfile
-set dir=~/.vim/swap
-
+set noswapfile
 set noundofile
 
 " forget about arrows

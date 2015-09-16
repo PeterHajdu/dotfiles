@@ -10,12 +10,6 @@
     - name: deploy dotfiles
       shell: cp -rf ~/src/other/dotfiles/.* ~
 
-    - name: create vim backup folder
-      file: dest=~/.vim/backup state=directory
-
-    - name: create vim swap folder
-      file: dest=~/.vim/swap state=directory
-
     - name: clone vundle
       git: repo=https://github.com/gmarik/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
 
