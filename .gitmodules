@@ -1,3 +1,0 @@
-[submodule "dropbox_uploader"]
-	path = thirdparty/dropbox_uploader
-	url = git@github.com:andreafabrizi/Dropbox-Uploader.git
