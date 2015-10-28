@@ -17,11 +17,15 @@ Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'davidhalter/jedi-vim'
+
 call vundle#end()
 
 filetype plugin indent on
 
 " General settings
+
+let mapleader=","
 
 set backspace=indent,eol,start
 set ruler
