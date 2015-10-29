@@ -82,9 +82,13 @@ hi clear SignColumn
 " In vim-airline, only display "hunks" if the diff is non-zero
 let g:airline#extensions#hunks#non_zero_only = 1
 
+" jedi-vim
+let g:jedi#use_tabs_not_buffers = 1
+
 syntax on
 
 set nobackup
+set nowritebackup
 set noswapfile
 set noundofile
 
