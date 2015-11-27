@@ -33,17 +33,14 @@ set number
 set showcmd
 set incsearch
 set hlsearch
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set smarttab
-set expandtab
-set softtabstop=2
 set ignorecase
 set smartcase
 
-" look and feel
+" Indentation
+set shiftwidth=2
+set tabstop=2
 
+" look and feel
 set background=dark
 set colorcolumn=100
 colorscheme advantage
@@ -84,6 +81,13 @@ let g:airline#extensions#hunks#non_zero_only = 1
 
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 1
+
+" ctrlp
+let g:ctrlp_max_files=20000
+let g:ctrlp_custom_ignore = {
+			\ 'dir':  '\v[\/]\.(git|hg|svn|CVS)$',
+			\ 'file': '\v\.(pyc|so|o|a)$',
+			\ }
 
 syntax on
 
