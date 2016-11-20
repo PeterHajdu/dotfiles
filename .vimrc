@@ -108,14 +108,12 @@ noremap   <Right>  <NOP>
 
 " easy tab navigation
 map <C-e> <ESC>:tabnew 
-map <C-l> <ESC>:tabn<CR>
-map <C-h> <ESC>:tabp<CR>
 
 " split pane navigation
-nmap <silent> <a-k> :wincmd k<CR>
-nmap <silent> <a-j> :wincmd j<CR>
-nmap <silent> <a-h> :wincmd h<CR>
-nmap <silent> <a-l> :wincmd l<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 " show insane characters
 set lcs=tab:>-,trail:-
