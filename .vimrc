@@ -17,7 +17,6 @@ Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()
 
@@ -78,9 +77,6 @@ let g:tagbar_ctags_bin = '/usr/local/bin/ectags'
 hi clear SignColumn
 " In vim-airline, only display "hunks" if the diff is non-zero
 let g:airline#extensions#hunks#non_zero_only = 1
-
-" jedi-vim
-let g:jedi#use_tabs_not_buffers = 1
 
 " ctrlp
 let g:ctrlp_max_files=20000
