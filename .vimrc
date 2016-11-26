@@ -37,6 +37,7 @@ set ignorecase
 set smartcase
 
 " Indentation
+set expandtab
 set shiftwidth=2
 set tabstop=2
 
